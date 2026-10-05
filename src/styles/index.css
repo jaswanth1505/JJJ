@@ -1,0 +1,149 @@
+/* ==========================================================================
+   ROMANTIC BIRTHDAY SURPRISE FOR JAYA — GLOBAL STYLES
+   Aesthetic: Warm cream, delicate blush pink, soft vintage scrapbook, cinematic
+   ========================================================================== */
+
+:root {
+  --bg-cream: #faf5f0;
+  --bg-cream-soft: #fdf9f5;
+  --bg-blush: #faece7;
+  --bg-rose: #f9d8d6;
+  
+  --color-primary: #9d2a4a;
+  --color-accent: #e24b74;
+  --color-accent-soft: #f47b9d;
+  --color-gold: #c98836;
+  --color-gold-light: #fbe0b5;
+  --color-text-dark: #3a2a29;
+  --color-text-muted: #7d6b69;
+  
+  --font-script: 'Great Vibes', cursive;
+  --font-hand: 'Caveat', cursive;
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  --shadow-soft: 0 10px 30px -8px rgba(180, 80, 100, 0.12), 0 4px 12px -2px rgba(80, 20, 30, 0.05);
+  --shadow-card: 0 18px 40px -10px rgba(140, 50, 70, 0.18), 0 6px 16px -4px rgba(80, 20, 30, 0.08);
+  --shadow-glow: 0 0 35px rgba(244, 123, 157, 0.45);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-cream);
+  color: var(--color-text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Texture Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.035;
+  background-image: url('/textures/grain.png');
+  background-repeat: repeat;
+}
+
+/* Subtle Vignette */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 98;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0) 60%, rgba(180, 120, 120, 0.08) 100%);
+}
+
+/* Floating motes / ambient particles */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.08); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.06); }
+  70% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Elegant handwriting / script headings */
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f7ede6;
+}
+::-webkit-scrollbar-thumb {
+  background: #e5b9be;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4939a;
+}
+
+/* Utility Animations */
+.animate-pulse-slow {
+  animation: gentlePulse 3.5s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2.2s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
